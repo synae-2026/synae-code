@@ -672,6 +672,21 @@ def evaluate_vendi(data_syn):
 
 
 
+## -- Validity Rate (Placeholder) -- ##
+def evaluate_validity_tool_call(data_pri, data_syn):
+    # TODO: requires LLM judge (vLLM self-consistency)
+    return {'Validity: tool call rate': None}
+
+
+## -- Downstream Metrics (Placeholder) -- ##
+def evaluate_downstream(data_pri, data_syn):
+    # TODO: not yet implemented
+    return {
+        'Downstream: task difficulty tool call': None,
+        'Downstream: ranking divergence tool call': None,
+    }
+
+
 ### --- End-to-End Evaluation --- ###
 # Evaluate the synthetic dataset against the private dataset on all metrics and save results to a json file
 FUNC_LIST = [evaluate_length,
@@ -682,7 +697,9 @@ FUNC_LIST = [evaluate_length,
              evaluate_tool_calling,
              evaluate_attr,
              evaluate_attr_entropy,
-             evaluate_vendi]
+             evaluate_vendi,
+             evaluate_validity_tool_call,
+             evaluate_downstream]
 
 COLUMN = ['Data', 'Tool Calls'] + ATTR
 

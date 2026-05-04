@@ -671,9 +671,11 @@ def evaluate_output(data_pri, data_syn):
 
     fea_pri, fea_syn = extract_features(data_pri, cache=PRI_OUTPUT), extract_features(data_syn)
     state = knn_precision_recall_features(fea_pri, fea_syn, nhood_sizes=[3])
-    return {'Output: token length': distance, 
-            'Output: precision': state['precision'], 
-            'Output: recall': state['recall']}
+    fid = calculate_fid(fea_syn, fea_pri)
+    return {'Output: token length': distance,
+            'Output: precision': state['precision'],
+            'Output: recall': state['recall'],
+            'Output: FID': fid}
 
 
 ## -- Metrics for Diversity -- ##
@@ -713,6 +715,27 @@ def evaluate_vendi(data_syn):
 
 
 
+## -- Validity Rate (Placeholder) -- ##
+def evaluate_validity_tool_call(data_pri, data_syn):
+    # TODO: requires LLM judge (vLLM self-consistency)
+    return {'Validity: tool call rate': None}
+
+def evaluate_validity_output(data_pri, data_syn):
+    # TODO: requires LLM judge (vLLM self-consistency)
+    return {'Validity: output rate': None}
+
+
+## -- Downstream Metrics (Placeholder) -- ##
+def evaluate_downstream(data_pri, data_syn):
+    # TODO: not yet implemented
+    return {
+        'Downstream: task difficulty tool call': None,
+        'Downstream: task difficulty output': None,
+        'Downstream: ranking divergence tool call': None,
+        'Downstream: ranking divergence output': None,
+    }
+
+
 ### --- End-to-End Evaluation --- ###
 # Evaluate the synthetic dataset against the private dataset on all metrics and save results to a json file
 FUNC_LIST = [evaluate_length,
@@ -724,7 +747,10 @@ FUNC_LIST = [evaluate_length,
              evaluate_tool_calling,
              evaluate_output,
              evaluate_attr_entropy,
-             evaluate_vendi]
+             evaluate_vendi,
+             evaluate_validity_tool_call,
+             evaluate_validity_output,
+             evaluate_downstream]
 
 COLUMN = ['Data', 'Tool Call', 'Output'] + ATTR
 
