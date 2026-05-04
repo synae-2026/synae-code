@@ -30,7 +30,7 @@ Steps 2.1. and 2.2. can then be worked on in parallel.
 ## Step 2.1. Invalidate Syn Gen
 
 Starting from orig_valid.csv, we'll invalidate the Tool Calls and Outputs for k = 0, 0.1, 0.2, ... 1 samples.
-This is an artificial synthetic benchmark creation method so we can verify ESDAE's validity metrics actually capture valid/invalid samples.
+This is an artificial synthetic benchmark creation method so we can verify SynAE's validity metrics actually capture valid/invalid samples.
 
 ### Invalidate Tool Calls
 
@@ -46,7 +46,7 @@ Run get_t1_invalidate_output.py to generate and save the synthetic benchmarks (s
 
 ## Step 2.2. Case Study
 
-We create artificial bad datasets so that a developer can see how to use ESDAE. 
+We create artificial bad datasets so that a developer can see how to use SynAE. 
 
 The ideal dataset will be T1-Augmented-Valid. Starting from here, we'll introduce "mistakes":
 1. Base dataset: Dropmin to drop a fraction of attraction_type samples 
