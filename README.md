@@ -51,7 +51,7 @@ AgentEval/
 ├── figure/                         # Figures used in the paper
 │   └── SynAE.png
 │
-├── SynDateGeneration/      # Synthetic benchmark generation (Hydra-managed)
+├── SynDataGeneration/      # Synthetic benchmark generation (Hydra-managed)
 │   ├── create_syn.py               # Main entry point: build synthetic benchmark
 │   ├── classify_syn.py             # Tag synthetic samples with attributes
 │   ├── collect_orig_syn_fps.py     # Collect (orig, syn) filepath pairs into a CSV
