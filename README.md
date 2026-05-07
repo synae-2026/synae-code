@@ -18,7 +18,7 @@ This repository implements **SynAE**, a multi-axis evaluation framework for asse
 8. [Metric Reference](#metric-reference)
 9. [Datasets and Benchmarks](#datasets-and-benchmarks)
 10. [Reproducing the Paper](#reproducing-the-paper)
-11. [Acknowledgement](#acknowledgement)
+11. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -292,15 +292,13 @@ CUDA_VISIBLE_DEVICES=0,1 bash run_acp.sh vllm_configs/llama3_1_8b_it.yaml 2
 CUDA_VISIBLE_DEVICES=0,1 bash run_acp.sh vllm_configs/qwen3_4b_it.yaml 2
 ```
 
-ACP uses a rule-based validity checker, so no LLM judge is required for the validity pillar.
-
 ---
 
 ## Metric Reference
 
 ### Validity
 
-- **Validity Rate (VR)** — fraction of samples whose tool calls and/or outputs accomplish the instruction. Default judge: LLM-as-a-judge (`Mistral-7B-Instruct`); rule-based checker for ACP.
+- **Validity Rate (VR)** — fraction of samples whose tool calls and/or outputs accomplish the instruction. Default judge: LLM-as-a-judge (`Mistral-7B-Instruct`).
 
 ### Fidelity
 
